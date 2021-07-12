@@ -3,3 +3,7 @@
   right: 28px;
   top: 4px;
 }
+
+.search-box-container {
+  margin: 0 auto !important;
+}

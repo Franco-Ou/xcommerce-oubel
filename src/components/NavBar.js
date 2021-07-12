@@ -1,6 +1,7 @@
 import React from "react";
-import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
+import { Navbar, Nav, Form, FormControl } from "react-bootstrap";
 import "./NavBar.css";
+import CartWidget from "./CartWidget";
 
 const NavBar = () => {
   return (
@@ -22,6 +23,7 @@ const NavBar = () => {
             <i className="fa fa-search" id="search-icon"></i>
           </div>
         </Form>
+        <CartWidget />
       </Navbar>
     </>
   );
