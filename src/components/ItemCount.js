@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Button, Row, Col, Container } from "react-bootstrap";
 import "./ItemCount.css";
 
@@ -6,10 +6,6 @@ const ItemCount = ({ stock, initial }) => {
 
     const [myStock, setMyStock] = useState(stock);
     const [counter, setCounter] = useState(initial);
-
-
-  //Se ejecuta cada vez que se modifica el counter para actualizar la palabra unidad o unidades según la cantidad
-
 
   const handleAdd = () => {
     if (counter < myStock) {
@@ -50,14 +46,14 @@ const ItemCount = ({ stock, initial }) => {
         <Row className="add-subtract-row">
           <Button
             className="btn"
-            variant="outline-primary"
+            variant="outline-secondary"
             onClick={() => handleSubtract()}
           >
             -
           </Button>
           <Button
             className="btn"
-            variant="outline-primary"
+            variant="outline-secondary"
             onClick={() => handleAdd()}
           >
             +
@@ -66,7 +62,7 @@ const ItemCount = ({ stock, initial }) => {
         <Row>
           <Button
             className="btn"
-            variant="outline-primary"
+            variant="outline-secondary"
             onClick={() => handleAddCarrito()}
           >
             Agregar al carrito
