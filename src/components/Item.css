@@ -1,0 +1,12 @@
+.card-style {
+    width: 15% !important;
+    margin: 1em 2em;
+    box-shadow: rgb(0 0 0 / 10%) 0px 4px 12px;
+    border-radius: 2px;
+    text-align: center;
+}
+
+.card-body-style {
+    background-color: #f3f3f3;
+    border-radius: 0 0 2px 2px;
+}
