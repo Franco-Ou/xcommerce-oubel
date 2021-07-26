@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 //import ItemCount from "./ItemCount";
-import ItemList from "./ItemList";
+import ItemList from "../ItemList/ItemList";
 
 const ItemListContainer = ({ greeting }) => {
   const [itemList, setItemList] = useState([]);
@@ -59,7 +59,7 @@ const ItemListContainer = ({ greeting }) => {
   return (
     <>
       <h1 style={{ marginTop: "60px", textAlign: "center" }}>{greeting}</h1>
-      <ItemList itemList={itemList}/>
+      <ItemList itemList={itemList} />
       {/*<ItemCount stock={5} initial={1} />*/}
     </>
   );

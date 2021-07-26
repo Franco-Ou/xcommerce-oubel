@@ -1,7 +1,7 @@
 import React from "react";
 import { Navbar, Nav, Form, FormControl } from "react-bootstrap";
 import "./NavBar.css";
-import CartWidget from "../components/CartWidget";
+import CartWidget from "../CartWidget/CartWidget";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
@@ -22,7 +22,7 @@ const NavBar = () => {
               placeholder="¿Qué estás buscando?"
               className="mr-sm-2"
             ></FormControl>
-            <FontAwesomeIcon icon={faSearch} id="search-icon"/>
+            <FontAwesomeIcon icon={faSearch} id="search-icon" />
           </div>
         </Form>
         <CartWidget />
