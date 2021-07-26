@@ -3,10 +3,9 @@ import ItemDetail from "./ItemDetail/ItemDetail";
 
 const ItemDetailContainer = () => {
   const [selectedItem, setSelectedItem] = useState({});
-  const [isDataLoaded, setIsDataLoaded] = useState(false);
 
   useEffect(() => {
-    const item = [
+    const items = [
       {
         id: "1",
         title: "Pavement Ranglan Crew Verde",
@@ -17,29 +16,20 @@ const ItemDetailContainer = () => {
       },
     ];
 
-    const getItem = new Promise((res, rej) => {
+    const getItems = new Promise((res, rej) => {
       setTimeout(() => {
-        res(item);
-        setIsDataLoaded(true);
+        res(items);
       }, 2000);
     });
 
-    const getItemAsync = () => {
-      return getItem;
-    };
-
-    getItemAsync()
-      .then((res) => setSelectedItem(res))
-      .catch((err) => console.log(err));
+    getItems.then((res) => setSelectedItem(res)).catch((err) => console.log(err));
   }, []);
 
   return (
     <Fragment>
-      {isDataLoaded ? (
-        <ItemDetail selectedItem={selectedItem} isDataLoaded={isDataLoaded} />
-      ) : (
-        <h1>Cargando...</h1>
-      )}
+     
+        <ItemDetail selectedItem={selectedItem} />
+
     </Fragment>
   );
 };

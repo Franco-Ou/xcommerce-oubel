@@ -1,20 +1,26 @@
-import React, { Fragment, Container, Row, Col, Image, useEffect } from "react";
+import React, { Fragment } from "react";
 import "./ItemDetail.css";
 
-const ItemDetail = ({ selectedItem, pictureUrl, isDataLoaded }) => {
-  const { title, description, price } = selectedItem[0] || {};
+const ItemDetail = ({ selectedItem }) => {
+  const { title, description, price, pictureUrl } = selectedItem[0] || {};
 
   return (
     <Fragment>
       <h1 className="detail-title">{title}</h1>
-      <div>
+      <div className="container">
+      <div className="detail-img-container">
         <img
           className="detail-img"
           src={pictureUrl}
           alt="producto seleccionado"
         />
       </div>
-      <p>{description}</p>
+      <div className="description-container">
+        <p>{description}</p>
+        <p>{price}</p>
+      </div>
+      </div>
+
     </Fragment>
   );
 };
