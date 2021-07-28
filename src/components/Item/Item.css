@@ -9,20 +9,38 @@
 .card-body-style {
   background-color: #f3f3f3;
   border-radius: 0 0 2px 2px;
+  height: 250px !important;
 }
 
 .btn-detail {
   color: #fff !important;
   background-color: rgb(73, 73, 73) !important;
   border: none !important;
-  margin-top: 0.5em;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .btn-detail:hover {
   background-color: rgb(128, 128, 128) !important;
 }
 
-.price-btn-container {
-  display: flex !important;
-  flex-direction: column !important;
+.card-title-container {
+  /* background-color: red; */
+  height: 25%;
 }
+
+.card-description-container {
+  /* background-color: blue; */
+  height: 30%;
+}
+
+.card-price-container {
+  /* background-color: yellow; */
+}
+
+.btn-detail-container {
+  /* background-color: green; */
+  height: 20%;
+  margin-top: 0.5em;
+}
+

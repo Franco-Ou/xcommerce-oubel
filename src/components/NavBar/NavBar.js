@@ -7,7 +7,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const NavBar = () => {
+
   const history = useHistory();
+
+  const handleClickOnCartWidget = () => {
+    history.push(`/carrito`);
+    console.log(history.push(`/carrito`));
+  }
 
   return (
     <>
@@ -25,10 +31,12 @@ const NavBar = () => {
               placeholder="¿Qué estás buscando?"
               className="mr-sm-2"
             ></FormControl>
-            <FontAwesomeIcon icon={faSearch} id="search-icon" />
+            <FontAwesomeIcon icon={faSearch} id="search-icon"/>
           </div>
         </Form>
-        <CartWidget />
+        <div onClick={() => handleClickOnCartWidget()}>
+        <CartWidget/>
+        </div>
       </Navbar>
     </>
   );

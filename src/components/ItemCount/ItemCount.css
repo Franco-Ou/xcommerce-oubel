@@ -1,5 +1,8 @@
 .btn-container {
-  width: fit-content !important;
+  width: fit-content;
+  margin: 0 auto;
+  text-align: center;
+  padding: 1em;
   border-radius: 3px;
   border: 0.5px solid #343a40 !important;
 }
@@ -27,4 +30,10 @@
   font-weight: lighter;
   color: #343a40;
   font-size: 1.5em;
+}
+
+.prueba {
+  border: 1px solid black;
+  width: 100px;
+  padding: 2em;
 }

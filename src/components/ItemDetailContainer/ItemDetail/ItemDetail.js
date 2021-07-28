@@ -19,10 +19,11 @@ const ItemDetail = ({ selectedItem }) => {
         <div className="description-container">
           <p>{description}</p>
           <p>{price}</p>
+          
+        <ItemCount stock={5} initial={1} />
         </div>
       </div>
-
-      <ItemCount stock={5} initial={1} />
+      
     </Fragment>
   );
 };

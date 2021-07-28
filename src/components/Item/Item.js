@@ -16,12 +16,16 @@ const Item = ({ title, pictureUrl, description, price, id }) => {
       <Card className="card-style">
         <Card.Img variant="top" src={pictureUrl} />
         <Card.Body className="card-body-style">
+          <div className="card-title-container">
           <Card.Title>{title}</Card.Title>
-          <div>
+          </div>
+          <div className="card-description-container">
             <p>{description}</p>
           </div>
-          <div className="price-btn-container">
-            <strong>{price}</strong>
+          <div className="card-price-container"> 
+            <p><strong>{price}</strong></p>
+          </div>
+          <div className="btn-detail-container">           
             <Button variant="outline-primary" className="btn-detail" onClick={() => handleButtonClick()}>
               Ir a detalle
             </Button>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Row, Col, Container } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import "./ItemCount.css";
 
 const ItemCount = ({ stock, initial }) => {
@@ -31,19 +31,14 @@ const ItemCount = ({ stock, initial }) => {
   const handleAddCarrito = () => {
     alert(`Usted agregó ${counter} ${handleUnidades()} al carrito`);
     setMyStock(myStock - counter);
-  };
+  }
 
   return (
-    <div>
-      <Container className="btn-container">
-        <Row className="counter-title-container">
-          <Col>
+    <div className="btn-container">    
             <h3>
               {counter} {handleUnidades()}
             </h3>
-          </Col>
-        </Row>
-        <Row className="add-subtract-row">
+        <div className="add-subtract-row">
           <Button
             className="btn"
             variant="outline-secondary"
@@ -58,8 +53,8 @@ const ItemCount = ({ stock, initial }) => {
           >
             +
           </Button>
-        </Row>
-        <Row>
+        </div>
+        <div>
           <Button
             className="btn"
             variant="outline-secondary"
@@ -67,10 +62,41 @@ const ItemCount = ({ stock, initial }) => {
           >
             Agregar al carrito
           </Button>
-        </Row>
-      </Container>
-    </div>
+        </div>
+      </div>
+      
   );
 };
 
 export default ItemCount;
+
+/* <div className="btn-container">    
+            <h3>
+              {counter} {handleUnidades()}
+            </h3>
+        <div className="add-subtract-row">
+          <Button
+            className="btn"
+            variant="outline-secondary"
+            onClick={() => handleSubtract()}
+          >
+            -
+          </Button>
+          <Button
+            className="btn"
+            variant="outline-secondary"
+            onClick={() => handleAdd()}
+          >
+            +
+          </Button>
+        </div>
+        <div>
+          <Button
+            className="btn"
+            variant="outline-secondary"
+            onClick={() => handleAddCarrito()}
+          >
+            Agregar al carrito
+          </Button>
+        </div>
+      </div> */

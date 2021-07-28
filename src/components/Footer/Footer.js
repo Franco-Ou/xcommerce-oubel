@@ -1,12 +1,12 @@
 import React from "react";
+import "./Footer.css";
 
 const Footer = () => (
   <footer
     className="page-footer font-small blue pt-4"
     style={{
       background: "#343a40",
-      color: "#FFF",
-      marginTop: "10em"
+      color: "#FFF"
     }}
   >
     <div className="container-fluid text-center text-md-left">
@@ -19,7 +19,6 @@ const Footer = () => (
         <hr className="clearfix w-100 d-md-none pb-0" />
       </div>
     </div>
-
     <div className="footer-copyright text-center py-3">
       © 2021 - Todos los derechos reservados
     </div>

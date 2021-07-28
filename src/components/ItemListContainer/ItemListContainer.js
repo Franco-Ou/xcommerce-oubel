@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from "react";
-//import ItemCount from "./ItemCount";
 import ItemList from "../ItemList/ItemList";
-import { NavLink, Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import data from "../../Data/data";
 
 const ItemListContainer = ({ greeting }) => {
   const [itemList, setItemList] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const { categoryId } = useParams();
 
   useEffect(() => {
+    setLoading(true);
     const getItems = new Promise((res, rej) => {
       setTimeout(() => {
+        setLoading(false);
         res(data);
       }, 2000);
     });
@@ -25,36 +27,11 @@ const ItemListContainer = ({ greeting }) => {
       .catch((err) => console.log(err));
   }, [categoryId]);
 
-  console.log("Esto devuelve categoryID: " + categoryId);
-
-  const categories = [
-    {
-      id: "abc123",
-      address: "/",
-      text: "Todos los productos",
-    },
-    {
-      id: "def123",
-      address: "/",
-      text: "hombres",
-    },
-    {
-      id: "ghi123",
-      address: "/",
-      text: "mujeres",
-    },
-    {
-      id: "jkl123",
-      address: "/",
-      text: "zapatillas",
-    },
-  ];
-
   return (
     <>
       <h1 style={{ marginTop: "60px", textAlign: "center" }}>{greeting}</h1>
+      {loading && <h1 className="cargando">Cargando...</h1>}
       <ItemList itemList={itemList} />
-      {/*<ItemCount stock={5} initial={1} />*/}
     </>
   );
 };
