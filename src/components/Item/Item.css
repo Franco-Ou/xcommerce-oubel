@@ -1,12 +1,28 @@
 .card-style {
-    width: 15% !important;
-    margin: 1em 2em;
-    box-shadow: rgb(0 0 0 / 10%) 0px 4px 12px;
-    border-radius: 2px;
-    text-align: center;
+  width: 15% !important;
+  margin: 1em 2em;
+  box-shadow: rgb(0 0 0 / 10%) 0px 4px 12px;
+  border-radius: 2px;
+  text-align: center;
 }
 
 .card-body-style {
-    background-color: #f3f3f3;
-    border-radius: 0 0 2px 2px;
+  background-color: #f3f3f3;
+  border-radius: 0 0 2px 2px;
+}
+
+.btn-detail {
+  color: #fff !important;
+  background-color: rgb(73, 73, 73) !important;
+  border: none !important;
+  margin-top: 0.5em;
+}
+
+.btn-detail:hover {
+  background-color: rgb(128, 128, 128) !important;
+}
+
+.price-btn-container {
+  display: flex !important;
+  flex-direction: column !important;
 }

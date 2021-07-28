@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import ItemCount from "../../ItemCount/ItemCount";
 import "./ItemDetail.css";
 
 const ItemDetail = ({ selectedItem }) => {
@@ -8,19 +9,20 @@ const ItemDetail = ({ selectedItem }) => {
     <Fragment>
       <h1 className="detail-title">{title}</h1>
       <div className="container">
-      <div className="detail-img-container">
-        <img
-          className="detail-img"
-          src={pictureUrl}
-          alt="producto seleccionado"
-        />
-      </div>
-      <div className="description-container">
-        <p>{description}</p>
-        <p>{price}</p>
-      </div>
+        <div className="detail-img-container">
+          <img
+            className="detail-img"
+            src={pictureUrl}
+            alt="producto seleccionado"
+          />
+        </div>
+        <div className="description-container">
+          <p>{description}</p>
+          <p>{price}</p>
+        </div>
       </div>
 
+      <ItemCount stock={5} initial={1} />
     </Fragment>
   );
 };

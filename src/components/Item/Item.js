@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Card, Button, Container } from "react-bootstrap";
 import "./Item.css";
 
 const Item = ({ title, pictureUrl, description, price }) => {
@@ -11,9 +11,12 @@ const Item = ({ title, pictureUrl, description, price }) => {
           <Card.Title>{title}</Card.Title>
           <div>
             <p>{description}</p>
-            <div>
-              <strong>{price}</strong>
-            </div>
+          </div>
+          <div className="price-btn-container">
+            <strong>{price}</strong>
+            <Button variant="outline-primary" className="btn-detail">
+              Ir a detalle
+            </Button>
           </div>
         </Card.Body>
       </Card>
