@@ -7,7 +7,7 @@ import data from "../../Data/data";
 const ItemListContainer = ({ greeting }) => {
   const [itemList, setItemList] = useState([]);
 
-  const { catId } = useParams();
+  const { categoryId } = useParams();
 
   useEffect(() => {
     const getItems = new Promise((res, rej) => {
@@ -21,9 +21,34 @@ const ItemListContainer = ({ greeting }) => {
     };
 
     getItemsAsync()
-      .then((res) => setItemList(res))
+      .then((res) => categoryId !== undefined ? setItemList(res.filter(item => item.category === categoryId)) : setItemList(res))
       .catch((err) => console.log(err));
-  }, []);
+  }, [categoryId]);
+
+  console.log("Esto devuelve categoryID: " + categoryId);
+
+  const categories = [
+    {
+      id: "abc123",
+      address: "/",
+      text: "Todos los productos",
+    },
+    {
+      id: "def123",
+      address: "/",
+      text: "hombres",
+    },
+    {
+      id: "ghi123",
+      address: "/",
+      text: "mujeres",
+    },
+    {
+      id: "jkl123",
+      address: "/",
+      text: "zapatillas",
+    },
+  ];
 
   return (
     <>

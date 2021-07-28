@@ -1,19 +1,22 @@
 import React from "react";
 import { Navbar, Nav, Form, FormControl } from "react-bootstrap";
+import { NavLink, useHistory } from "react-router-dom";
 import "./NavBar.css";
 import CartWidget from "../CartWidget/CartWidget";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const NavBar = () => {
+  const history = useHistory();
+
   return (
     <>
       <Navbar fixed="top" bg="dark" variant="dark">
-        <Navbar.Brand href="#home">Xcommerce</Navbar.Brand>
+        <Navbar.Brand href="/" className="navbar-brand">Xcommerce</Navbar.Brand>
         <Nav className="mr-auto">
-          <Nav.Link href="#home">Mujer</Nav.Link>
-          <Nav.Link href="#features">Hombre</Nav.Link>
-          <Nav.Link href="#pricing">Marcas</Nav.Link>
+          <NavLink className="nav-link" to="/categoria/mujer">Mujer</NavLink>
+          <NavLink className="nav-link" to="/categoria/hombre">Hombre</NavLink>
+          <NavLink className="nav-link" to="/categoria/zapatillas">Zapatillas</NavLink>
         </Nav>
         <Form inline>
           <div className="search-box-container">

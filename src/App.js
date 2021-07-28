@@ -14,7 +14,10 @@ function App() {
         <Route exact path="/">
           <ItemListContainer greeting="Productos destacados" />
         </Route>
-        <Route exact path="/detail">
+        <Route exact path="/categoria/:categoryId">
+          <ItemListContainer greeting="Productos destacados" />
+        </Route>
+        <Route exact path="/detalle/:itemId">
           <ItemDetailContainer />
         </Route>
       </Switch>

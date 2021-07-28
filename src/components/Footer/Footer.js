@@ -6,7 +6,7 @@ const Footer = () => (
     style={{
       background: "#343a40",
       color: "#FFF",
-      marginTop: "10em",
+      marginTop: "10em"
     }}
   >
     <div className="container-fluid text-center text-md-left">

@@ -7,3 +7,7 @@
 .search-box-container {
   margin: 0 auto !important;
 }
+
+.navbar-brand {
+  cursor: pointer;
+}

@@ -1,35 +1,28 @@
 import React, { Fragment, useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import data from "../../Data/data";
 import ItemDetail from "./ItemDetail/ItemDetail";
 
 const ItemDetailContainer = () => {
   const [selectedItem, setSelectedItem] = useState({});
+  const { itemId } = useParams();
 
   useEffect(() => {
-    const items = [
-      {
-        id: "1",
-        title: "Pavement Ranglan Crew Verde",
-        description: "Buzo Ranglan con parche en pecho",
-        price: "$5350,00",
-        pictureUrl:
-          "https://cdn2.c1rca.com.ar/shop/14773-large_default/-pavement-ranglan-crew-negro.jpg",
-      },
-    ];
 
     const getItems = new Promise((res, rej) => {
       setTimeout(() => {
-        res(items);
+        res(data);
       }, 2000);
     });
 
-    getItems.then((res) => setSelectedItem(res)).catch((err) => console.log(err));
-  }, []);
+    getItems
+      .then((res) => itemId !== undefined ? setSelectedItem(res.filter(item => item.id === itemId)) : "")
+      .catch((err) => console.log(err));
+  }, [itemId]);
 
   return (
     <Fragment>
-     
-        <ItemDetail selectedItem={selectedItem} />
-
+      {selectedItem.length > 0 && <ItemDetail selectedItem={selectedItem} />}
     </Fragment>
   );
 };
