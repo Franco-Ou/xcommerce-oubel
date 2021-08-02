@@ -14,7 +14,7 @@ const Item = ({ title, pictureUrl, description, price, id }) => {
   return (
     <>
       <Card className="card-style">
-        <Card.Img variant="top" src={pictureUrl} />
+        <Card.Img className="img-fluid" variant="top" src={pictureUrl} />
         <Card.Body className="card-body-style">
           <div className="card-title-container">
           <Card.Title>{title}</Card.Title>

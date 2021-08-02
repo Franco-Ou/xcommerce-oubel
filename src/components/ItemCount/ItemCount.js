@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import "./ItemCount.css";
 
-const ItemCount = ({ stock, initial }) => {
+const ItemCount = ({ stock, initial, setIsCounterSelected, setUnitsAddedMessage }) => {
 
     const [myStock, setMyStock] = useState(stock);
     const [counter, setCounter] = useState(initial);
@@ -29,7 +29,8 @@ const ItemCount = ({ stock, initial }) => {
   };
 
   const handleAddCarrito = () => {
-    alert(`Usted agregó ${counter} ${handleUnidades()} al carrito`);
+    setIsCounterSelected(true);
+    setUnitsAddedMessage(`Usted agregó ${counter} ${handleUnidades()} al carrito`);
     setMyStock(myStock - counter);
   }
 
@@ -69,34 +70,3 @@ const ItemCount = ({ stock, initial }) => {
 };
 
 export default ItemCount;
-
-/* <div className="btn-container">    
-            <h3>
-              {counter} {handleUnidades()}
-            </h3>
-        <div className="add-subtract-row">
-          <Button
-            className="btn"
-            variant="outline-secondary"
-            onClick={() => handleSubtract()}
-          >
-            -
-          </Button>
-          <Button
-            className="btn"
-            variant="outline-secondary"
-            onClick={() => handleAdd()}
-          >
-            +
-          </Button>
-        </div>
-        <div>
-          <Button
-            className="btn"
-            variant="outline-secondary"
-            onClick={() => handleAddCarrito()}
-          >
-            Agregar al carrito
-          </Button>
-        </div>
-      </div> */

@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import data from "../../Data/data";
 import ItemDetail from "./ItemDetail/ItemDetail";
@@ -21,9 +21,9 @@ const ItemDetailContainer = () => {
   }, [itemId]);
 
   return (
-    <Fragment>
+    <div style={{minHeight:'100vh'}}>
       {selectedItem.length > 0 && <ItemDetail selectedItem={selectedItem} />}
-    </Fragment>
+    </div>
   );
 };
 

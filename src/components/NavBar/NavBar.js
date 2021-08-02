@@ -1,28 +1,24 @@
 import React from "react";
 import { Navbar, Nav, Form, FormControl } from "react-bootstrap";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./NavBar.css";
 import CartWidget from "../CartWidget/CartWidget";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import categorias from "../../Data/Categorias";
 
 const NavBar = () => {
-
-  const history = useHistory();
-
-  const handleClickOnCartWidget = () => {
-    history.push(`/carrito`);
-    console.log(history.push(`/carrito`));
-  }
 
   return (
     <>
       <Navbar fixed="top" bg="dark" variant="dark">
         <Navbar.Brand href="/" className="navbar-brand">Xcommerce</Navbar.Brand>
         <Nav className="mr-auto">
-          <NavLink className="nav-link" to="/categoria/mujer">Mujer</NavLink>
-          <NavLink className="nav-link" to="/categoria/hombre">Hombre</NavLink>
-          <NavLink className="nav-link" to="/categoria/zapatillas">Zapatillas</NavLink>
+          {
+            categorias.map(categoria => {
+              return <NavLink className="nav-link" to={`/categoria/${categoria.nombre}`}>{categoria.nombre.charAt(0).toUpperCase() + categoria.nombre.slice(1)}</NavLink>
+            })
+          }
         </Nav>
         <Form inline>
           <div className="search-box-container">
@@ -34,9 +30,11 @@ const NavBar = () => {
             <FontAwesomeIcon icon={faSearch} id="search-icon"/>
           </div>
         </Form>
-        <div onClick={() => handleClickOnCartWidget()}>
+        {/* <div onClick={() => handleClickOnCartWidget()}> */}
+        <NavLink className="nav-link" to="/carrito">
         <CartWidget/>
-        </div>
+        </NavLink>
+        {/* </div> */}
       </Navbar>
     </>
   );
