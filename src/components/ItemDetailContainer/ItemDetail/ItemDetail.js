@@ -5,9 +5,12 @@ import { Link } from "react-router-dom";
 import "./ItemDetail.css";
 
 const ItemDetail = ({ selectedItem }) => {
-  const [isCounterSelected, setIsCounterSelected] = useState(false);
   const [unitsAddedMessage, setUnitsAddedMessage] = useState("");
+  const [unitsAdded, setUnitsAdded] = useState(0);
   const { title, description, price, pictureUrl } = selectedItem[0] || {};
+
+
+
 
   return (
     <Fragment>
@@ -27,21 +30,26 @@ const ItemDetail = ({ selectedItem }) => {
               <p className="font-weight-bold">{price}</p>
             </div>
             <div className="col-12 col-md-6">
-              {isCounterSelected ? (
+              {unitsAdded > 0 ? (
                 <div className="units-btn-container">
                 <p>{unitsAddedMessage}</p>
                 <Link to="/carrito">
-                  <Button className="btn" variant="outline-secondary">
+                  <Button className="btn" variant="outline-secondary" onClick={() => console.log("Funciona")}>
                     Terminar compra
                   </Button>
+                </Link>
+                <Link to="/">                
+                <p className="seguir-comprando">Seguir comprando</p>
                 </Link>
                 </div>
               ) : (
                 <ItemCount
                   stock={5}
                   initial={1}
-                  setIsCounterSelected={setIsCounterSelected}
+                  setUnitsAdded={setUnitsAdded}
                   setUnitsAddedMessage={setUnitsAddedMessage}
+                  item={selectedItem}
+                  unitsAdded={unitsAdded}
                 />
               )}
             </div>

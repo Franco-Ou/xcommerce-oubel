@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
+import { useCartContext } from "../../context/cartContext/CartContext";
 import "./ItemCount.css";
 
-const ItemCount = ({ stock, initial, setIsCounterSelected, setUnitsAddedMessage }) => {
+const ItemCount = ({ stock, initial, setUnitsAdded, setUnitsAddedMessage, item, unitsAdded }) => {
 
     const [myStock, setMyStock] = useState(stock);
     const [counter, setCounter] = useState(initial);
+
+    const { addItemToCart, isItemInCart, addQuantity } = useCartContext();
 
   const handleAdd = () => {
     if (counter < myStock) {
@@ -29,7 +32,12 @@ const ItemCount = ({ stock, initial, setIsCounterSelected, setUnitsAddedMessage 
   };
 
   const handleAddCarrito = () => {
-    setIsCounterSelected(true);
+    if(isItemInCart(item[0].id)){
+      addQuantity(item[0].id, counter)
+    } else {
+      addItemToCart({"item": {item}, "quantity": counter})
+    }
+    setUnitsAdded(counter);
     setUnitsAddedMessage(`Usted agregó ${counter} ${handleUnidades()} al carrito`);
     setMyStock(myStock - counter);
   }

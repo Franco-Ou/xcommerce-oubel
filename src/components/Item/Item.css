@@ -24,21 +24,16 @@
 }
 
 .card-title-container {
-  /* background-color: red; */
   height: 25%;
 }
 
 .card-description-container {
-  /* background-color: blue; */
   height: 30%;
 }
 
-.card-price-container {
-  /* background-color: yellow; */
-}
+
 
 .btn-detail-container {
-  /* background-color: green; */
   height: 20%;
   margin-top: 0.5em;
 }

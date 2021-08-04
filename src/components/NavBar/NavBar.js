@@ -16,7 +16,7 @@ const NavBar = () => {
         <Nav className="mr-auto">
           {
             categorias.map(categoria => {
-              return <NavLink className="nav-link" to={`/categoria/${categoria.nombre}`}>{categoria.nombre.charAt(0).toUpperCase() + categoria.nombre.slice(1)}</NavLink>
+              return <NavLink key={Math.random() * 100} className="nav-link" to={`/categoria/${categoria.nombre}`}>{categoria.nombre.charAt(0).toUpperCase() + categoria.nombre.slice(1)}</NavLink>
             })
           }
         </Nav>

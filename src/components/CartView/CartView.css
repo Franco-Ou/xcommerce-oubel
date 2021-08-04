@@ -1,11 +1,14 @@
-.main-container {
-    width: 400px;
-    height: 400px;
-    padding: 1.em;
-    box-shadow: rgb(0 0 0 / 10%) 0px 4px 12px;
-    margin: 100px auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.main-title {
     text-align: center;
+}
+
+.container-description {
+    
+  border-radius: 0 0 2px 2px;
+  
+  box-shadow: rgb(0 0 0 / 10%) 0px 4px 12px;
+}
+
+.container {
+    margin-bottom: 2em !important;
 }
