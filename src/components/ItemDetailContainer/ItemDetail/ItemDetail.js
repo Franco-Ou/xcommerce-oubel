@@ -1,15 +1,38 @@
 import React, { Fragment, useState } from "react";
 import ItemCount from "../../ItemCount/ItemCount";
+
+//Context
+import { useCartContext } from "../../../context/cartContext/CartContext";
+
+//Bootstrap - CSS
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./ItemDetail.css";
 
-const ItemDetail = ({ selectedItem }) => {
+const ItemDetail = ({ item }) => {
   const [unitsAddedMessage, setUnitsAddedMessage] = useState("");
   const [unitsAdded, setUnitsAdded] = useState(0);
-  const { title, description, price, pictureUrl } = selectedItem[0] || {};
+  const [counter, setCounter] = useState(1);
+  const [myStock, setMyStock] = useState(5);
+  const { title, description, price, pictureUrl } = item[0] || {};  
+  const { addItemToCart } = useCartContext();
 
+  const handleAddCarrito = () => {
+    addItemToCart(item, counter);
+    
+    setUnitsAdded(counter);
+    setUnitsAddedMessage(`Usted agregó ${counter} ${handleUnidades()} al carrito`);
+    setMyStock(myStock - counter);
+  }
 
+    //Maneja palabra unidad o unidades según la cantidad de unidades
+    const handleUnidades = () => {
+      if (counter === 1) {
+        return "unidad";
+      } else {
+        return "unidades";
+      }
+    };
 
 
   return (
@@ -34,7 +57,7 @@ const ItemDetail = ({ selectedItem }) => {
                 <div className="units-btn-container">
                 <p>{unitsAddedMessage}</p>
                 <Link to="/carrito">
-                  <Button className="btn" variant="outline-secondary" onClick={() => console.log("Funciona")}>
+                  <Button className="btn" variant="outline-secondary">
                     Terminar compra
                   </Button>
                 </Link>
@@ -44,12 +67,11 @@ const ItemDetail = ({ selectedItem }) => {
                 </div>
               ) : (
                 <ItemCount
-                  stock={5}
-                  initial={1}
-                  setUnitsAdded={setUnitsAdded}
-                  setUnitsAddedMessage={setUnitsAddedMessage}
-                  item={selectedItem}
-                  unitsAdded={unitsAdded}
+                  counter={counter}
+                  setCounter={setCounter}
+                  myStock={myStock}
+                  handleAddCarrito={handleAddCarrito}
+                  handleUnidades={handleUnidades}
                 />
               )}
             </div>

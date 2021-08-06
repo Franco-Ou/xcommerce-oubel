@@ -22,7 +22,7 @@ const ItemDetailContainer = () => {
 
   return (
     <div style={{minHeight:'100vh'}}>
-      {selectedItem.length > 0 && <ItemDetail selectedItem={selectedItem} />}
+      {selectedItem.length > 0 && <ItemDetail item={selectedItem} />}
     </div>
   );
 };

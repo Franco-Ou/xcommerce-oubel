@@ -1,14 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "react-bootstrap";
-import { useCartContext } from "../../context/cartContext/CartContext";
 import "./ItemCount.css";
 
-const ItemCount = ({ stock, initial, setUnitsAdded, setUnitsAddedMessage, item, unitsAdded }) => {
-
-    const [myStock, setMyStock] = useState(stock);
-    const [counter, setCounter] = useState(initial);
-
-    const { addItemToCart, isItemInCart, addQuantity } = useCartContext();
+const ItemCount = ({ counter, setCounter, myStock, handleAddCarrito, handleUnidades }) => {
 
   const handleAdd = () => {
     if (counter < myStock) {
@@ -21,26 +15,6 @@ const ItemCount = ({ stock, initial, setUnitsAdded, setUnitsAddedMessage, item, 
       setCounter(counter - 1);
     }
   };
-
-  //Maneja palabra unidad o unidades según la cantidad de unidades
-  const handleUnidades = () => {
-    if (counter === 1) {
-      return "unidad";
-    } else {
-      return "unidades";
-    }
-  };
-
-  const handleAddCarrito = () => {
-    if(isItemInCart(item[0].id)){
-      addQuantity(item[0].id, counter)
-    } else {
-      addItemToCart({"item": {item}, "quantity": counter})
-    }
-    setUnitsAdded(counter);
-    setUnitsAddedMessage(`Usted agregó ${counter} ${handleUnidades()} al carrito`);
-    setMyStock(myStock - counter);
-  }
 
   return (
     <div className="btn-container">    

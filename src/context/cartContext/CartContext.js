@@ -9,8 +9,12 @@ import React, { createContext, useContext, useState } from 'react';
     const CartContextProvider = ({children}) => {
         const [itemsInCart, setItemsInCart] = useState([]);
 
-        const addItemToCart = (item) => {
-            setItemsInCart([...itemsInCart, item]);
+        const addItemToCart = (item, quantity) => {
+            if(isItemInCart(item[0].id)){
+                addQuantity(item[0].id, quantity)
+              } else {
+                setItemsInCart([...itemsInCart, {"item": {item}, "quantity": quantity}]);
+              } 
         }
 
         function isItemInCart(id) {
@@ -24,19 +28,18 @@ import React, { createContext, useContext, useState } from 'react';
      
         function addQuantity(id, quant) {
             for (const product of itemsInCart) {
-                if(product.item.item[0].id===id){
+                if(product.item.item[0].id === id){
                     product.quantity+= quant;
                 }
             }
+            setItemsInCart([...itemsInCart]);
         }
 
 
 
         return <CartContext.Provider value={{
             itemsInCart,
-            addItemToCart,
-            isItemInCart,
-            addQuantity
+            addItemToCart
         }}>
             {children}
         </CartContext.Provider>
