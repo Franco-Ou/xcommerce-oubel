@@ -1,8 +1,12 @@
 import React from 'react';
 import "./CartItem.css";
-import { Container, Row, Col, Image } from 'react-bootstrap';
+import { Container, Row, Col, Image, Button } from 'react-bootstrap';
+import { useCartContext } from "../../context/cartContext/CartContext";
 
-const CartItem = ({ src, title, price, quantity }) => {
+const CartItem = ({ src, title, price, quantity, id }) => {
+
+  const { removeItemFromCart } = useCartContext();
+
   return (
     <>
       <Container className="main-container">
@@ -14,6 +18,9 @@ const CartItem = ({ src, title, price, quantity }) => {
             <h4>{title}</h4>
             <h4>{price}</h4>
             <h4>Unidades seleccionadas: {quantity}</h4>
+          </Col>
+          <Col>
+            <Button variant="outline-primary" className="btn-remove-item" onClick={() => removeItemFromCart(id)}>Quitar</Button>
           </Col>
         </Row>
       </Container>

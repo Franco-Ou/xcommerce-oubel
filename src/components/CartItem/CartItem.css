@@ -7,3 +7,9 @@
 .container {
   margin-bottom: 2em !important;
 }
+
+.btn-remove-item {
+  color: #fff !important;
+  background-color: rgb(73, 73, 73) !important;
+  border: none !important;
+}

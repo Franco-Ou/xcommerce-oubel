@@ -8,14 +8,32 @@ import React, { createContext, useContext, useState } from 'react';
 
     const CartContextProvider = ({children}) => {
         const [itemsInCart, setItemsInCart] = useState([]);
+        const [itemsInCartQuantity, setItemsInCartQuantity] = useState(0);
 
         const addItemToCart = (item, quantity) => {
             if(isItemInCart(item[0].id)){
                 addQuantity(item[0].id, quantity)
               } else {
                 setItemsInCart([...itemsInCart, {"item": {item}, "quantity": quantity}]);
-              } 
+              }
+              const totalQuantity = itemsInCartQuantity + quantity;
+              setItemsInCartQuantity(totalQuantity);
         }
+
+        const removeItemFromCart = (id) => {
+            //Consigo del item seleccionado la cantidad a restar del contador del cart
+            let quantityToSubtract = 0;
+            for (const product of itemsInCart) {
+                if(product.item.item[0].id === id){
+                    quantityToSubtract += product.quantity; 
+                }
+            }
+
+            const filteredItems = itemsInCart.filter(product => product.item.item[0].id !== id);
+            setItemsInCart(filteredItems);
+            setItemsInCartQuantity(itemsInCartQuantity - quantityToSubtract);
+        }
+
 
         function isItemInCart(id) {
             let findProduct = itemsInCart.filter(product => product.item.item[0].id === id)
@@ -39,7 +57,9 @@ import React, { createContext, useContext, useState } from 'react';
 
         return <CartContext.Provider value={{
             itemsInCart,
-            addItemToCart
+            itemsInCartQuantity,
+            addItemToCart,
+            removeItemFromCart
         }}>
             {children}
         </CartContext.Provider>

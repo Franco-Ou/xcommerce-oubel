@@ -26,6 +26,3 @@ const CartView = () => {
 };
 
 export default CartView;
-
- /*         {console.log("Items in cart devuelve --> ", itemsInCart)}
-        {console.log("product price: " + product.item.item[0].price)} */

@@ -7,7 +7,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import categorias from "../../Data/Categorias";
 
+import { useCartContext } from "../../context/cartContext/CartContext";
+
 const NavBar = () => {
+
+  
+  const { itemsInCartQuantity } = useCartContext();
 
   return (
     <>
@@ -30,11 +35,9 @@ const NavBar = () => {
             <FontAwesomeIcon icon={faSearch} id="search-icon"/>
           </div>
         </Form>
-        {/* <div onClick={() => handleClickOnCartWidget()}> */}
         <NavLink className="nav-link" to="/carrito">
-        <CartWidget/>
+        { itemsInCartQuantity > 0 ? <CartWidget itemsInCartQuantity={itemsInCartQuantity}/> : ""}
         </NavLink>
-        {/* </div> */}
       </Navbar>
     </>
   );
