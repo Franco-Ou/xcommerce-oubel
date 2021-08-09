@@ -4,7 +4,7 @@ const data = [
     title: "Pavement Ranglan Crew Verde",
     description: "Buzo Ranglan con parche en pecho",
     category: "hombre",
-    price: "$5350,00",
+    price: "$5,350.00",
     pictureUrl:
       "https://cdn2.c1rca.com.ar/shop/14773-large_default/-pavement-ranglan-crew-negro.jpg",
   },
@@ -13,7 +13,7 @@ const data = [
     title: "Cement Po Verde",
     description: "Buzo tipo canguro con logo bordado",
     category: "hombre",
-    price: "$6790,00",
+    price: "$6,790.00",
     pictureUrl:
       "https://cdn1.c1rca.com.ar/shop/14601-large_default/cement-po-verde-.jpg",
   },
@@ -22,7 +22,7 @@ const data = [
     title: "Mini Icon Crew Azul",
     description: "Buzo escote redondo",
     category: "hombre",
-    price: "$4698,00",
+    price: "$4,698.00",
     pictureUrl:
       "https://cdn2.c1rca.com.ar/shop/14481-large_default/mini-icon-crew-azul.jpg",
   },
@@ -31,7 +31,7 @@ const data = [
     title: "Icon Crew Rojo",
     description: "Buzo escote redondo",
     category: "hombre",
-    price: "$4698,00",
+    price: "$4,698.00",
     pictureUrl:
       "https://cdn1.c1rca.com.ar/shop/14479-large_default/icon-crew-rojo.jpg",
   },
@@ -40,7 +40,7 @@ const data = [
     title: "Folk Woven Girls Azul",
     description: "Camisa a cuadros",
     category: "mujer",
-    price: "$4752,00",
+    price: "$4,752.00",
     pictureUrl:
       "https://cdn2.c1rca.com.ar/shop/6745-large_default/folk-woven-girls-azul.jpg",
   },
@@ -49,7 +49,7 @@ const data = [
     title: "Batik MSC Tee Girls Bordó",
     description: "Crop Top Batyk",
     category: "mujer",
-    price: "$2500,00",
+    price: "$2,500.00",
     pictureUrl:
       "https://cdn1.c1rca.com.ar/shop/10433-large_default/batik-msc-tee-girls-bordo.jpg",
   },
@@ -58,7 +58,7 @@ const data = [
     title: "Eye Tank Girls Verde Esmeralda",
     description: "Remera sin mangas",
     category: "mujer",
-    price: "$2405,00",
+    price: "$2,405.00",
     pictureUrl:
       "https://cdn2.c1rca.com.ar/shop/10424-large_default/eye-tank-girls-verde-esmeralda.jpg",
   },
@@ -67,7 +67,7 @@ const data = [
     title: "Eye Tank Girls Rosa Fuerte",
     description: "Remera sin mangas",
     category: "mujer",
-    price: "$2405,00",
+    price: "$2,405.00",
     pictureUrl:
       "https://cdn3.c1rca.com.ar/shop/10429-large_default/eye-tank-girls-rosa-fuerte.jpg",
   },
@@ -76,7 +76,7 @@ const data = [
     title: "Hesh negra / GUM",
     description: "Zapatillas de cuero descarne y loneta",
     category: "zapatillas",
-    price: "$7398,00",
+    price: "$7,398.00",
     pictureUrl:
       "https://cdn1.c1rca.com.ar/shop/14338-large_default/hesh-negra-gum.jpg",
   },
@@ -85,7 +85,7 @@ const data = [
     title: "AL 50 negra",
     description: "Zapatillas de cuero ecológico",
     category: "zapatillas",
-    price: "$7850,00",
+    price: "$7,850.00",
     pictureUrl:
       "https://cdn2.c1rca.com.ar/shop/14762-large_default/-al-50-negra.jpg",
   },

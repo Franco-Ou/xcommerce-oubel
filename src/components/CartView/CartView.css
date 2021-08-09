@@ -5,3 +5,20 @@
 .empty-cart-message {
   text-align: center;
 }
+
+.seguir-comprando-cart {
+  color: rgb(37, 30, 30);
+  text-align: center;
+  margin-top: 4em;
+  font-size: 2em;
+}
+
+.empty-cart-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.full-price-style {
+  text-align: center;
+}
