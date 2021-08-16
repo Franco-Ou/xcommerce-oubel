@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import ItemList from "../ItemList/ItemList";
+import { getFirestore } from "../../Data/firebaseService";
 import { useParams, useLocation } from "react-router-dom";
-import data from "../../Data/data";
 import { Spinner } from "react-bootstrap";
 
 const ItemListContainer = () => {
-  const [itemList, setItemList] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const [fireBaseItemList, setFireBaseItemList] = useState([]);
   const { categoryId } = useParams();
   const location = useLocation();
 
@@ -15,21 +14,35 @@ const ItemListContainer = () => {
 
   useEffect(() => {
     setLoading(true);
-    const getItems = new Promise((res, rej) => {
-      setTimeout(() => {
-        setLoading(false);
-        res(data);
-      }, 2000);
-    });
 
-    const getItemsAsync = () => {
-      return getItems;
-    };
+    const dbQuery = getFirestore();
 
-    getItemsAsync()
-      .then((res) => categoryId !== undefined ? setItemList(res.filter(item => item.category === categoryId)) : setItemList(res))
-      .catch((err) => console.log(err));
+    categoryId === undefined
+      ? dbQuery
+          .collection("items")
+          .get()
+          .then((res) => {
+            setFireBaseItemList(
+              res.docs.map((item) => ({ ...item.data(), id: item.id }))
+            )
+            setLoading(false);
+          }
+          )
+          .catch((err) => console.log(err))
+      : dbQuery
+          .collection("items")
+          .where("category", "==", categoryId)
+          .get()
+          .then((res) => {
+            setFireBaseItemList(
+              res.docs.map((product) => ({ ...product.data(), id: product.id }))
+            )
+            setLoading(false);
+          }
+          )
+          .catch((err) => console.log(err));
   }, [categoryId]);
+
 
   return (
     <div style={{minHeight:'100vh'}}>
@@ -43,7 +56,7 @@ const ItemListContainer = () => {
           variant="secondary"
           />
         </div>}
-      {!loading && <ItemList itemList={itemList} /> }
+      {!loading && <ItemList itemList={fireBaseItemList} /> }
     </div>
   );
 };

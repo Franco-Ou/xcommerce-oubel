@@ -23,7 +23,7 @@ const Item = ({ title, pictureUrl, description, price, id }) => {
             <p>{description}</p>
           </div>
           <div className="card-price-container"> 
-            <p><strong>{price}</strong></p>
+            <p><strong>${price}.00</strong></p>
           </div>
           <div className="btn-detail-container">           
             <Button variant="outline-primary" className="btn-detail" onClick={() => handleButtonClick()}>

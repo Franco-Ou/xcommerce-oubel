@@ -13,3 +13,15 @@
   background-color: rgb(73, 73, 73) !important;
   border: none !important;
 }
+
+.btn-empty-cart {
+  color: #fff !important;
+  background-color: rgb(73, 73, 73) !important;
+  border: none !important;
+  margin: 0 auto;
+}
+
+.empty-cart-btn-container {
+  display: flex;
+  justify-content: center;
+}

@@ -14,12 +14,11 @@ const ItemDetail = ({ item }) => {
   const [unitsAdded, setUnitsAdded] = useState(0);
   const [counter, setCounter] = useState(1);
   const [myStock, setMyStock] = useState(5);
-  const { title, description, price, pictureUrl } = item[0] || {};  
+  const { title, description, price, pictureUrl } = item || {};  
   const { addItemToCart } = useCartContext();
 
   const handleAddCarrito = () => {
-    addItemToCart(item, counter);
-    
+    addItemToCart(item, counter);  
     setUnitsAdded(counter);
     setUnitsAddedMessage(`Usted agregó ${counter} ${handleUnidades()} al carrito`);
     setMyStock(myStock - counter);
@@ -50,7 +49,7 @@ const ItemDetail = ({ item }) => {
           <div className="col-12 col-md-6 py-5 row ">
             <div className="col-12 col-md-6">
               <p>{description}</p>
-              <p className="font-weight-bold">{price}</p>
+              <p className="font-weight-bold">${price}.00</p>
             </div>
             <div className="col-12 col-md-6">
               {unitsAdded > 0 ? (
