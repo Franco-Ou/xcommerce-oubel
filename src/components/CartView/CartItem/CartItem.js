@@ -16,7 +16,7 @@ const CartItem = ({ src, title, price, quantity, id }) => {
           </Col>
           <Col md={4} className="container-description">
             <h4>{title}</h4>
-            <h4>{price}</h4>
+            <h4>${price}.00</h4>
             <h4>Unidades seleccionadas: {quantity}</h4>
           </Col>
           <Col>

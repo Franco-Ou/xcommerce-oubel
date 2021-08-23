@@ -1,10 +1,8 @@
 import React from "react";
-import { Navbar, Nav, Form, FormControl } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import "./NavBar.css";
 import CartWidget from "../CartWidget/CartWidget";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import categorias from "../../Data/Categorias";
 
 import { useCartContext } from "../../context/cartContext/CartContext";
@@ -17,7 +15,7 @@ const NavBar = () => {
   return (
     <>
       <Navbar fixed="top" bg="dark" variant="dark">
-        <Navbar.Brand href="/" className="navbar-brand">Xcommerce</Navbar.Brand>
+        <Navbar.Brand href="/" className="navbar-brand">XCommerce</Navbar.Brand>
         <Nav className="mr-auto">
           {
             categorias.map(categoria => {
@@ -25,16 +23,6 @@ const NavBar = () => {
             })
           }
         </Nav>
-        <Form inline>
-          <div className="search-box-container">
-            <FormControl
-              type="text"
-              placeholder="¿Qué estás buscando?"
-              className="mr-sm-2"
-            ></FormControl>
-            <FontAwesomeIcon icon={faSearch} id="search-icon"/>
-          </div>
-        </Form>
         <NavLink className="nav-link" to="/carrito">
         { itemsInCartQuantity > 0 ? <CartWidget itemsInCartQuantity={itemsInCartQuantity}/> : ""}
         </NavLink>

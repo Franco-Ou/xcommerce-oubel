@@ -6,7 +6,7 @@ import { Spinner } from "react-bootstrap";
 
 const ItemListContainer = () => {
   const [loading, setLoading] = useState(true);
-  const [fireBaseItemList, setFireBaseItemList] = useState([]);
+  const [itemList, setItemList] = useState([]);
   const { categoryId } = useParams();
   const location = useLocation();
 
@@ -22,7 +22,7 @@ const ItemListContainer = () => {
           .collection("items")
           .get()
           .then((res) => {
-            setFireBaseItemList(
+            setItemList(
               res.docs.map((item) => ({ ...item.data(), id: item.id }))
             )
             setLoading(false);
@@ -34,7 +34,7 @@ const ItemListContainer = () => {
           .where("category", "==", categoryId)
           .get()
           .then((res) => {
-            setFireBaseItemList(
+            setItemList(
               res.docs.map((product) => ({ ...product.data(), id: product.id }))
             )
             setLoading(false);
@@ -56,7 +56,7 @@ const ItemListContainer = () => {
           variant="secondary"
           />
         </div>}
-      {!loading && <ItemList itemList={fireBaseItemList} /> }
+      {!loading && <ItemList itemList={itemList} /> }
     </div>
   );
 };
