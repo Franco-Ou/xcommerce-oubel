@@ -32,20 +32,19 @@ const CartContextProvider = ({ children }) => {
       (product) => product.item.item.id !== id
     );
     setItemsInCart(filteredItems);
-    setItemsInCartQuantity(itemsInCartQuantity - quantityToSubtract);  
-    
+    setItemsInCartQuantity(itemsInCartQuantity - quantityToSubtract);
   };
 
   const emptyCart = () => {
     setItemsInCartQuantity(0);
     setItemsInCart([]);
-  }
+  };
 
   const cartPrice = () => {
-     let fullPrice = itemsInCart.reduce((acum,product) => acum + product.item.item.price * product.quantity, 0);
-     return fullPrice;
-}
-
+    let fullPrice = itemsInCart.reduce(
+      (acum, product) => acum + product.item.item.price * product.quantity, 0);
+    return fullPrice;
+  };
 
   function isItemInCart(id) {
     let findProduct = itemsInCart.filter(
@@ -75,7 +74,7 @@ const CartContextProvider = ({ children }) => {
         addItemToCart,
         removeItemFromCart,
         cartPrice,
-        emptyCart
+        emptyCart,
       }}
     >
       {children}

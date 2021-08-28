@@ -1,4 +1,6 @@
 import React from "react";
+
+//FontAwesome y estilos
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import "./CartWidget.css";

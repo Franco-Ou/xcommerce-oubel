@@ -1,14 +1,20 @@
 import React from "react";
-import { Navbar, Nav } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
-import "./NavBar.css";
+
+//Components
 import CartWidget from "../CartWidget/CartWidget";
 import categorias from "../../Data/Categorias";
 
+//Context
 import { useCartContext } from "../../context/cartContext/CartContext";
 
-const NavBar = () => {
+//React-router
+import { NavLink } from "react-router-dom";
 
+//Bootstrap y estilos
+import { Navbar, Nav } from "react-bootstrap";
+import "./NavBar.css";
+
+const NavBar = () => {
   
   const { itemsInCartQuantity } = useCartContext();
 

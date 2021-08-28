@@ -1,13 +1,23 @@
 import React, { useState } from "react";
-import "./CartView.css";
-import { useCartContext } from "../../context/cartContext/CartContext";
-import { getFirestore } from "../../Data/firebaseService";
-import firebase from "firebase/app";
-import { Link } from "react-router-dom";
-import CartItem from "../CartItem/CartItem";
-import { Button } from "react-bootstrap";
+
+//Components
+import CartItem from "./CartItem/CartItem";
 import CartForm from "./CartForm/CartForm";
 import CartModal from "./CartModal/CartModal";
+
+//Context
+import { useCartContext } from '../../context/cartContext/CartContext';
+
+//Firebase
+import { getFirestore } from '../../Data/firebaseService';
+import firebase from "firebase/app";
+
+//React-router
+import { Link } from "react-router-dom";
+
+//Bootstrap y estilos
+import { Button } from "react-bootstrap";
+import "./CartView.css";
 
 const CartView = () => {
   const { itemsInCart, cartPrice, emptyCart } = useCartContext();

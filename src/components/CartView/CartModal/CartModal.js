@@ -1,4 +1,6 @@
 import React from "react";
+
+//Bootstrap
 import { Modal } from "react-bootstrap";
 
 const CartModal = (props) => {

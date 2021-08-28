@@ -1,12 +1,16 @@
 import React, { Fragment, useState } from "react";
+
+//Components
 import ItemCount from "../../ItemCount/ItemCount";
+
+//React-router
+import { Link } from "react-router-dom";
 
 //Context
 import { useCartContext } from "../../../context/cartContext/CartContext";
 
-//Bootstrap - CSS
-import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+//Bootstrap y estilos
+import { Button, Container, Row, Col } from "react-bootstrap";
 import "./ItemDetail.css";
 
 const ItemDetail = ({ item }) => {
@@ -37,21 +41,21 @@ const ItemDetail = ({ item }) => {
   return (
     <Fragment>
       <h1 className="detail-title">{title}</h1>
-      <div className="container">
-        <div className="row">
-          <div className="col-12 col-md-6">
+      <Container>
+        <Row>
+          <Col md={6} sm={12}>
             <img
               className="img-fluid"
               src={pictureUrl}
               alt="producto seleccionado"
             />
-          </div>
-          <div className="col-12 col-md-6 py-5 row ">
-            <div className="col-12 col-md-6">
+          </Col>
+          <Col md={6} className="row">
+            <Col md={6} sm={12}>
               <p>{description}</p>
               <p className="font-weight-bold">${price}.00</p>
-            </div>
-            <div className="col-12 col-md-6">
+            </Col>
+            <Col md={6} sm={12}>
               {unitsAdded > 0 ? (
                 <div className="units-btn-container">
                 <p>{unitsAddedMessage}</p>
@@ -73,10 +77,10 @@ const ItemDetail = ({ item }) => {
                   handleUnidades={handleUnidades}
                 />
               )}
-            </div>
-          </div>
-        </div>
-      </div>
+            </Col>
+          </Col>
+        </Row>
+      </Container>
     </Fragment>
   );
 };

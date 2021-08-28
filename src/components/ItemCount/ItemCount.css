@@ -1,25 +1,21 @@
 .btn-container {
   width: fit-content;
-  margin: 0 auto;
   text-align: center;
   padding: 1em;
   border-radius: 3px;
-  border: 0.5px solid #343a40 !important;
+  box-shadow: rgb(0 0 0 / 10%) 0px 4px 12px;
 }
 
 .btn {
-  padding: 0.3em 2em !important;
-  margin: 1em 1em;
-  border: 0.5px solid #343a40 !important;
+  color: #fff !important;
+  background-color: rgb(73, 73, 73) !important;
+  border: none !important;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .btn:hover {
   background-color: #343a40 !important;
-}
-
-.add-subtract-row {
-  display: flex;
-  justify-content: center;
 }
 
 .counter-title-container {
@@ -30,10 +26,4 @@
   font-weight: lighter;
   color: #343a40;
   font-size: 1.5em;
-}
-
-.prueba {
-  border: 1px solid black;
-  width: 100px;
-  padding: 2em;
 }

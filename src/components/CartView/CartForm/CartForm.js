@@ -1,4 +1,6 @@
 import React from 'react';
+
+//Bootstrap y estilos
 import { Form, Col, Row, Container } from 'react-bootstrap';
 import "./CartForm.css";
 

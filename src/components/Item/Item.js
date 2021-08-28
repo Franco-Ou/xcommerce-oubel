@@ -1,6 +1,10 @@
 import React from "react";
-import { Card, Button } from "react-bootstrap";
+
+//React-router
 import { useHistory } from "react-router-dom";
+
+//Bootstrap y estilos
+import { Card, Button } from "react-bootstrap";
 import "./Item.css";
 
 const Item = ({ title, pictureUrl, description, price, id }) => {

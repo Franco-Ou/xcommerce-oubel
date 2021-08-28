@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from "react";
+
+//Components
 import ItemList from "../ItemList/ItemList";
-import { getFirestore } from "../../Data/firebaseService";
+
+//React-router
 import { useParams, useLocation } from "react-router-dom";
+
+//Firebase
+import { getFirestore } from "../../Data/firebaseService";
+
+//Bootstrap
 import { Spinner } from "react-bootstrap";
 
 const ItemListContainer = () => {
@@ -9,8 +17,6 @@ const ItemListContainer = () => {
   const [itemList, setItemList] = useState([]);
   const { categoryId } = useParams();
   const location = useLocation();
-
-
 
   useEffect(() => {
     setLoading(true);

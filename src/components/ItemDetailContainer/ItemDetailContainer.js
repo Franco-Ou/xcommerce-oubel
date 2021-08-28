@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+
+//Firebase
 import { getFirestore } from "../../Data/firebaseService";
 import ItemDetail from "./ItemDetail/ItemDetail";
 import { Spinner } from "react-bootstrap";
+
+//React-router
+import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = () => {
   const [selectedItem, setSelectedItem] = useState({});

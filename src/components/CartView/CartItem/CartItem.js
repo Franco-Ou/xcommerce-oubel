@@ -1,7 +1,11 @@
 import React from 'react';
+
+//Bootstrap y estilos
 import "./CartItem.css";
 import { Container, Row, Col, Image, Button } from 'react-bootstrap';
-import { useCartContext } from "../../context/cartContext/CartContext";
+
+//Context
+import { useCartContext } from '../../../context/cartContext/CartContext';
 
 const CartItem = ({ src, title, price, quantity, id }) => {
 
