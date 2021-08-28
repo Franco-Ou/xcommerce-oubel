@@ -27,6 +27,17 @@ const CartView = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    saveOrderInFirestore();
+  };
+
+  const handleFormChange = (e) => {
+    setCustomer({
+      ...customer,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const saveOrderInFirestore = () => {
     const db = getFirestore();
     db.collection("Order")
       .add({
@@ -38,14 +49,7 @@ const CartView = () => {
       .then((res) => setOrderCode(res.id))
       .catch((err) => console.log(err));
       setModalShow(true);
-  };
-
-  const handleFormChange = (e) => {
-    setCustomer({
-      ...customer,
-      [e.target.name]: e.target.value,
-    });
-  };
+  }
 
   return (
     <div style={{ minHeight: "100vh" }}>
@@ -88,7 +92,6 @@ const CartView = () => {
       {itemsInCart.length > 0 && (
         <CartForm
           customer={customer}
-          setCustomer={setCustomer}
           handleFormSubmit={handleFormSubmit}
           handleFormChange={handleFormChange}
         />

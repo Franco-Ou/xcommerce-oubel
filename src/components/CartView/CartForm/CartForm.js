@@ -4,7 +4,7 @@ import React from 'react';
 import { Form, Col, Row, Container } from 'react-bootstrap';
 import "./CartForm.css";
 
-const CartForm = ({customer, setCustomer, handleFormSubmit, handleFormChange}) => {
+const CartForm = ({customer, handleFormSubmit, handleFormChange}) => {
     return (
       <>
         <Container className="form-container">
