@@ -45,9 +45,10 @@ const ItemDetail = ({ item }) => {
         <Row>
           <Col md={6} sm={12}>
             <img
-              className="img-fluid"
+              className="img-fluid img-border"
               src={pictureUrl}
               alt="producto seleccionado"
+              
             />
           </Col>
           <Col md={6} className="row">

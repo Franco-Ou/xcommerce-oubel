@@ -4,11 +4,13 @@ import React from 'react';
 import { Form, Col, Row, Container } from 'react-bootstrap';
 import "./CartForm.css";
 
-const CartForm = ({customer, handleFormSubmit, handleFormChange}) => {
+const CartForm = ({customer, handleFormSubmit, handleFormChange, error, handleEmailMatch, repeatedEmail}) => {
+
     return (
       <>
         <Container className="form-container">
           <h4>Ingresa tus datos para finalizar la compra</h4>
+          {error ? <div className="form-error">Complete los campos correctamente</div> : ""}
           <Row>
             <Col md={12}>
               <Form onSubmit={handleFormSubmit}>
@@ -40,6 +42,16 @@ const CartForm = ({customer, handleFormSubmit, handleFormChange}) => {
                     name="email"
                     value={customer.email}
                     onChange={handleFormChange}
+                  />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="formGroupRepeatedEmail">
+                  <Form.Label>Repetí tu Email</Form.Label>
+                  <Form.Control
+                    type="email"
+                    placeholder="Ingresalo nuevamente"
+                    name="repeatedEmail"
+                    value={repeatedEmail}
+                    onChange={handleEmailMatch}
                   />
                 </Form.Group>
                 <button className="btn btn-confirm-purchase">Confirmar compra</button>

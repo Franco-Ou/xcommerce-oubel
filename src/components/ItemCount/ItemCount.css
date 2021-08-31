@@ -1,16 +1,16 @@
 .btn-container {
-  width: fit-content;
   text-align: center;
-  padding: 1em;
-  border-radius: 3px;
-  box-shadow: rgb(0 0 0 / 10%) 0px 4px 12px;
+  padding: 1em 0;
+  background-color: #f3f3f3;
+  border-radius: 2px;
+  border: 1px solid rgba(0,0,0,.125);
 }
 
 .btn {
   color: #fff !important;
   background-color: rgb(73, 73, 73) !important;
   border: none !important;
-  width: 100%;
+  width: fit-content;
   margin: 0 auto;
 }
 

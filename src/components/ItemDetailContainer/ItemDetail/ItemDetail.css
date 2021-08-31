@@ -20,19 +20,26 @@
 }
 
 .btn {
-  padding: 0.3em 2em !important;
-  margin: 1em 1em;
+  padding: 0.3em 1em !important;
+  margin: 0 auto;
+  margin-bottom: 0.5em;
+  width: fit-content;
   border: 0.5px solid #343a40 !important;
 }
 
 .units-btn-container {
   text-align: center;
   padding: 1em 0;
-  border-radius: 3px;
-  border: 0.5px solid #343a40 !important;
+  background-color: #f3f3f3;
+  border-radius: 2px;
+  border: 1px solid rgba(0,0,0,.125);
 }
 
 .seguir-comprando {
   color: rgb(37, 30, 30);
   
+}
+
+.img-border {
+  border: 1px solid rgba(0,0,0,.125);
 }

@@ -22,11 +22,27 @@ import "./CartView.css";
 const CartView = () => {
   const { itemsInCart, cartPrice, emptyCart } = useCartContext();
   const [customer, setCustomer] = useState({ name: "", phone: "", email: "" });
+  const [repeatedEmail, setRepeatedEmail] = useState("");
   const [orderCode, setOrderCode] = useState("");
   const [modalShow, setModalShow] = useState(false);
+  const [error, setError] = useState(false);
+
+  const { name, phone, email } = customer;
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+
+    if(name.trim() === '' || phone.trim() === '' || email.trim() === '') {
+      setError(true);
+      return;
+    }
+
+    if(repeatedEmail.trim() !== email) {
+      setError(true);
+      return;
+    }
+
+    setError(false);
     saveOrderInFirestore();
   };
 
@@ -36,6 +52,10 @@ const CartView = () => {
       [e.target.name]: e.target.value,
     });
   };
+
+  const handleEmailMatch = (e) => {
+    setRepeatedEmail(e.target.value);
+  }
 
   const saveOrderInFirestore = () => {
     const db = getFirestore();
@@ -94,6 +114,9 @@ const CartView = () => {
           customer={customer}
           handleFormSubmit={handleFormSubmit}
           handleFormChange={handleFormChange}
+          error={error}
+          handleEmailMatch={handleEmailMatch}
+          repeatedEmail={repeatedEmail}
         />
       )}
       {modalShow && (
